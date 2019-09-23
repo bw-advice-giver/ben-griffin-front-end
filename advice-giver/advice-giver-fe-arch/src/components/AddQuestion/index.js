@@ -1,4 +1,4 @@
-import AddQuestion from './AddQuestion';
+import FormikAddQuestion from './AddQuestion';
 
 
-export default AddQuestion;
+export default FormikAddQuestion;
