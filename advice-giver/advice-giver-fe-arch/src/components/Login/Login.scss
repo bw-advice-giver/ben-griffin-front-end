@@ -1,0 +1,39 @@
+@import '../../scss/1-utils/#index';
+
+.Login {
+  border: 1.5px solid #252524;
+  border-radius: 7px;
+
+  width: 70%;
+  height: 20vh;
+
+  margin-left: 20%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  background-color: #204963;
+}
+
+input {
+  border-radius: 7px;
+
+  margin-top: 20%;
+  margin-left: 15px;
+
+  background-color: #c4cdd3
+}
+
+input:hover {
+  opacity: 0.6;
+}
+
+.login-btn {
+  border-radius: 7px;
+  margin-left: 15px;
+}
+
+.login-btn:hover {
+  opacity: 0.6;
+}
