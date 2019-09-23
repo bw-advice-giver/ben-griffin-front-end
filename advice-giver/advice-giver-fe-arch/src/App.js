@@ -5,7 +5,11 @@ import './App.css';
 // Components
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import QuestionsList from './components/QuestionsList';
+import Profile from './components/Profile';
+
+// Private Route(s)
+import PrivateRoute from './components/PrivateRoute';
+
 function App() {
   return (
     <Router>
@@ -18,10 +22,18 @@ function App() {
           <li>
             <Link to="/signup">SignUp</Link>
           </li>
+          <li>
+            <Link to="/profile">Profile Page</Link>
+          </li>
+          <li>
+            <Link to="/questions">Question List</Link>
+          </li>
         </ul>
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <PrivateRoute exact path="/profile" component={Profile}/>
+          {/* <PrivateRoute exact path="/questions" component={Questions}/> */}
         </Switch>
       </div>
     </Router>

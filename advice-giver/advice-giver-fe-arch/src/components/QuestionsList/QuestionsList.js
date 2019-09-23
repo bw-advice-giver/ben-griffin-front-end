@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import QuestionCard from './QuestionCard';
+import QuestionsCard from '../QuestionsCard/QuestionsCard';
 
 function QuestionList () {
 
@@ -21,6 +21,6 @@ function QuestionList () {
 function QuestionDetails ({ list }){
     const { id } = list;
     return (
-        <QuestionCard {...list}/>
+        <QuestionsCard {...list}/>
     )
 }

@@ -34,10 +34,13 @@ class SignUp extends React.Component {
               // save the returned token to localStorage ***
             localStorage.setItem('token', res.data.payload);
             // navigate your user to your login route *** aka pushing to our protected route
-            this.props.history.push('/protected');
+            this.props.history.push('/profile');
           })
           .catch(err => console.log(err));
       };
+
+      // Toggle User Type: Seeker or Advisor
+      
 
     render() {
         return (
@@ -49,7 +52,7 @@ class SignUp extends React.Component {
                         name="username"
                         value={this.state.credentials.username}
                         onChange={this.handleChange}
-                        placeholder="Email"
+                        placeholder="Username"
                     />
 
                     <input 

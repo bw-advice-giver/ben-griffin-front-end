@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionCard = props => {
+const QuestionsCard = props => {
     const { title, question } = props;
     return (
         <div className="question-card">
@@ -10,4 +10,4 @@ const QuestionCard = props => {
     )
 }
 
-export default QuestionCard;
+export default QuestionsCard;
