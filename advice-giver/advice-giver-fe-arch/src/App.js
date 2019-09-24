@@ -6,7 +6,7 @@ import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
-
+import AddQuestion from './components/AddQuestion';
 // Private Route(s)
 import PrivateRoute from './components/PrivateRoute';
 
@@ -28,12 +28,16 @@ function App() {
           <li>
             <Link to="/questions">Question List</Link>
           </li>
+          <li>
+            <Link to="/add-question">Post A Question</Link>
+          </li>
         </ul>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
           <PrivateRoute exact path="/profile" component={Profile}/>
           {/* <PrivateRoute exact path="/questions" component={Questions}/> */}
+          <Route exact path="/add-question" component={AddQuestion}/>
         </Switch>
       </div>
     </Router>
