@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
- import './SignUp.scss';
- import styled from "styled-components";
+import styled from "styled-components";
 
 
-class SignUp extends React.Component {
+
+class SignUpAdvi extends React.Component {
 
     //set default state with empty creds obj
     state = {
@@ -13,11 +13,12 @@ class SignUp extends React.Component {
             name: '',
             username: '',
             password: '', 
-            geo: ''
+            geo: '',
+            area: ''
         }
     };
 
-        // Handler functions below
+        // Handlers below
 
     // when a change is made to our inputs, update our state object to that change
     handleChange = e => {
@@ -35,7 +36,7 @@ class SignUp extends React.Component {
         e.preventDefault();
         // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
         axiosWithAuth()
-          .post('/signup', this.state.credentials)
+          .post('/login', this.state.credentials)
           .then(res => {
               // save the returned token to localStorage ***
             localStorage.setItem('token', res.data.payload);
@@ -51,7 +52,7 @@ class SignUp extends React.Component {
     render() {
         return (
             <div className="Signup">
-                <h2>Advisee Sign Up</h2>
+                <h2>Advisor Sign Up</h2>
                 <form onSubmit={this.signUp}>
                 <div className="input-ovrd">
                 <input 
@@ -89,32 +90,29 @@ class SignUp extends React.Component {
                     <input 
                         type="text"
                         name="area"
-                        value={this.state.credentials.geo}
+                        value={this.state.credentials.area}
                         onChange={this.handleChange}
-                        placeholder="Area of Interest"
+                        placeholder="Area of Expertise"
                         className="sign-up-input"
                     />
                      <button className="signup-btn">Sign Up</button>
-                    
                     </div>
-
-                   
                 </form>
-                
-                
-                
-                <StyledLink to = "advisor-signup">Click here to sign up as an advisor!</StyledLink>
+               
+                <StyledLink to= "signup">Click here to sign up as an advisee!</StyledLink>
             </div>
         )
     } //end Render
 
 } // end Login Form
 
-export default SignUp;
+
+
+
+export default SignUpAdvi
 
 
 const StyledLink = styled(Link)`
     color: black;
     width: 35%;
-    
 `
