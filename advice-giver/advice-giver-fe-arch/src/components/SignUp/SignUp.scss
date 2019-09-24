@@ -19,7 +19,7 @@
   border-radius: 7px;
 
   width: 70%;
-  height: 50vh;
+  height: 90vh;
  
 
   margin-left: 15%;
@@ -39,7 +39,7 @@
 
 .sign-up-input {
   display: flex;
-  width: 88%;
+  width: 98%;
   padding-bottom: 3%;
   margin-top: 40%;
   border-radius: 3px;
@@ -48,8 +48,9 @@
   font-size: .9rem;
   background-color: whitesmoke;
   border: 1px solid #7990B1;
-  margin-left: -10%;
+  
   font-size: 1rem;
+  margin-right: -90%;
 }
 
 .sign-up-input:hover {
@@ -59,7 +60,7 @@
 .signup-btn {
   border-radius: 3px;
   // margin-left: 15px;
-  margin-top: 8%;
+  margin-top: 58%;
   font-size: 1.3rem;
   height: 20px;
   padding-bottom: 4%;
@@ -67,10 +68,14 @@
     font-weight: bold;
     background-color: #3A648C;
     color: white;
-    margin-bottom: -50%;
-  margin-left: -20%;
+    margin-bottom: -10%;
+  margin-left: -17%;
 }
 
 .signup-btn:hover {
   opacity: 0.6;
+}
+
+h2{
+  margin-right: -15%;
 }

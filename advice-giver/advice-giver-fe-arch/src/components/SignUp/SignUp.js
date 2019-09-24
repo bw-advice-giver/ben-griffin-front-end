@@ -1,15 +1,17 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
-
-import './SignUp.scss';
+import { Link } from 'react-router-dom';
+ import './SignUp.scss';
 
 class SignUp extends React.Component {
 
     //set default state with empty creds obj
     state = {
         credentials: {
+            name: '',
             username: '',
-            password: ''
+            password: '', 
+            geo: ''
         }
     };
 
@@ -50,6 +52,14 @@ class SignUp extends React.Component {
                 <h2>Sign Up</h2>
                 <form onSubmit={this.signUp}>
                 <div className="input-ovrd">
+                <input 
+                        type="text"
+                        name="name"
+                        value={this.state.credentials.name}
+                        onChange={this.handleChange}
+                        placeholder="Name"
+                        className="sign-up-input"
+                    />
                     <input 
                         type="text"
                         name="username"
@@ -64,6 +74,14 @@ class SignUp extends React.Component {
                         placeholder="Password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
+                        className="sign-up-input"
+                    />
+                    <input 
+                        type="text"
+                        name="geo"
+                        value={this.state.credentials.geo}
+                        onChange={this.handleChange}
+                        placeholder="Geographic Location"
                         className="sign-up-input"
                     />
                     </div>
