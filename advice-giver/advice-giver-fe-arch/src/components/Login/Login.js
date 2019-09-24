@@ -1,6 +1,8 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
+import './Login.scss';
+
 class Login extends React.Component {
 
     //set default state with empty creds obj
@@ -44,24 +46,26 @@ class Login extends React.Component {
             <div className="Login">
                 <h2>Log In</h2>
                 <form onSubmit={this.login}>
+                <div className="input-ovrd">
                 <input
                     type="text"
                     name="username"
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
                     placeholder="Username"
+                    className="login-input"
                 />
-
                     <input 
                         type="password"
                         name="password"
                         placeholder="Password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
+                        className="login-input"
                     />
                     <button className="login-btn">Login</button>
+                    </div>
                 </form>
-
             </div>
         )
     } //end Render

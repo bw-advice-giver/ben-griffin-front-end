@@ -7,6 +7,9 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
 import AddQuestion from './components/AddQuestion';
+import QuestionList from './components/QuestionsList';
+import FormikAddQuestion from './components/AddQuestion';
+
 // Private Route(s)
 import PrivateRoute from './components/PrivateRoute';
 
@@ -29,15 +32,16 @@ function App() {
             <Link to="/questions">Question List</Link>
           </li>
           <li>
-            <Link to="/add-question">Post A Question</Link>
+            <Link to="/addquestion">Post A Question</Link>
           </li>
         </ul>
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          
           <PrivateRoute exact path="/profile" component={Profile}/>
-          {/* <PrivateRoute exact path="/questions" component={Questions}/> */}
-          <Route exact path="/add-question" component={AddQuestion}/>
+          <PrivateRoute exact path="/questions" component={QuestionList}/>
+          <PrivateRoute exact path="/addquestion" component={FormikAddQuestion}/>
         </Switch>
       </div>
     </Router>
