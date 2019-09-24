@@ -5,21 +5,26 @@ import styled from "styled-components";
 
 
 const StyledLabel = styled.label`
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     display: flex;
     justify-content: center;
     font-weight: bold;
     margin-bottom: 2%;
     margin-top: 1%;
+    color: #BAB6CA
+    
 `
 
 const StyledTitle = styled(Field)`
-    width: 15%;
+    width: 18%;
     padding: .8%;
     border-radius: 3px;
     margin-bottom: 2%;
     border: 1px solid grey;
-    font-size: .8rem;
+    font-size: .9rem;
+    background-color: whitesmoke;
+    border: 1px solid #7990B1;
+   
 `
 
 const StyledButton = styled.button`
@@ -30,22 +35,28 @@ const StyledButton = styled.button`
     padding: 1%;
     border-radius: 3px;
     font-weight: bold;
+    background-color: #3A648C;
+    color: white;
 `
 
 const StyledDiv = styled.div`
 
-    background-color: lightgrey;
+    background-color: #293341;
     padding-bottom: 4%;
     box-sizing: border-box;
     width: 70%;
     margin-left: 16%;
     margin-bottom: 10%;
     padding-top: 4%;
+    border-radius: 4px;
+    border: 3px solid #7990B1
 `
 
 const StyledHead = styled.h1`
     text-decoration: underline;
-
+    color: #293341;
+    margin-bottom: 8%;
+    color: #BAB6CA
 `
 
 const StyledBody = styled(Field)`
@@ -54,15 +65,20 @@ const StyledBody = styled(Field)`
     resize: none;
     border: 1px solid grey;
     border-radius: 3px;
-    font-size: .8rem;
+    font-size: .9rem;
+    border: 1px solid #7990B1;
+    background-color: whitesmoke;
 `
 
 const StyledDrop = styled(Field)`
     cursor: pointer;
     margin-bottom: 2%;
     background-color: whitesmoke;
+    boder: 1px solid #7990B1;
+    width: 20%;
+    padding: 55%;
+    border: 1px solid #7990B1;
 `
-
 
 
 
@@ -85,6 +101,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
 
         <Form>
 
+           
             <StyledLabel>Title</StyledLabel>
             <StyledTitle
             type = "text"
@@ -95,6 +112,8 @@ const AddQuestion = ({values, errors, touched, status}) => {
             {touched.title && errors.title && (
                 <p>{errors.title}</p>
             )}
+
+            
 
             <StyledLabel>Please Select Your Question Type</StyledLabel>
             <StyledDrop
