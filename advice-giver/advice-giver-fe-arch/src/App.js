@@ -41,7 +41,7 @@ function App() {
           
           <PrivateRoute exact path="/profile" component={Profile}/>
           <PrivateRoute exact path="/questions" component={QuestionList}/>
-          <Route exact path="/addquestion" component={FormikAddQuestion}/> 
+          <PrivateRoute exact path="/addquestion" component={FormikAddQuestion}/> 
 
         </Switch>
       </div>

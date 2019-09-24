@@ -79,7 +79,9 @@ const StyledDrop = styled(Field)`
     padding: 55%;
     border: 1px solid #7990B1;
 `
-
+const StyledError = styled.p`
+    color: #BAB6CA;
+`
 
 
 
@@ -110,7 +112,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
             />
 
             {touched.title && errors.title && (
-                <p>{errors.title}</p>
+                <StyledError>{errors.title}</StyledError>
             )}
 
             
@@ -133,7 +135,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
             
 
             {touched.type && errors.type && (
-                <p>{errors.type}</p>
+                <StyledError>{errors.type}</StyledError>
             )}
 
             <StyledLabel>Question</StyledLabel>    
@@ -145,7 +147,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
             />
 
            {touched.body && errors.body&& (
-                <p>{errors.body}</p>
+                <StyledError>{errors.body}</StyledError>
             )}
 
             <StyledButton type = "submit">Submit</StyledButton>
