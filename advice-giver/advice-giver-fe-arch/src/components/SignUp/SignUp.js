@@ -13,7 +13,7 @@ class SignUp extends React.Component {
         }
     };
 
-        // Handlers below
+        // Handler functions below
 
     // when a change is made to our inputs, update our state object to that change
     handleChange = e => {
@@ -31,7 +31,7 @@ class SignUp extends React.Component {
         e.preventDefault();
         // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
         axiosWithAuth()
-          .post('/login', this.state.credentials)
+          .post('/signup', this.state.credentials)
           .then(res => {
               // save the returned token to localStorage ***
             localStorage.setItem('token', res.data.payload);
