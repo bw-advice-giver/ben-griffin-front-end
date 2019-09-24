@@ -1,6 +1,6 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
-
+import styled from "styled-components";
 import './Login.scss';
 
 class Login extends React.Component {
@@ -44,26 +44,28 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Login">
-                <h2>Log In</h2>
+                <StyledBig>Please Log In Below</StyledBig>
                 <form onSubmit={this.login}>
                 <div className="input-ovrd">
-                <input
+                <StyledSmall>Username</StyledSmall>
+                <StyledBox
                     type="text"
                     name="username"
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
-                    placeholder="Username"
+                    // placeholder="Enter Your Username"
                     className="login-input"
                 />
-                    <input 
+                <StyledSmall>Password</StyledSmall>
+                    <StyledBox 
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        // placeholder="Password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
                         className="login-input"
                     />
-                    <button className="login-btn">Login</button>
+                    <StyledPress className="login-btn">Login</StyledPress>
                     </div>
                 </form>
             </div>
@@ -73,3 +75,19 @@ class Login extends React.Component {
 } // end Login Form
 
 export default Login;
+
+const StyledBig = styled.h2`
+    margin-left: -40%;
+    margin-top: -10%:
+`
+
+const StyledSmall = styled.h3`
+    margin-left: 140%;
+    margin-top: 10%;
+`
+const StyledBox = styled.input`
+    margin-left: 140%
+`
+const StyledPress = styled.button`
+    margin-left: 160%;
+`
