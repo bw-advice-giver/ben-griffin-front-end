@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Hello From APP</h1>
+        <h1>Advice Giver</h1>
         <ul>
           <li>
             <Link to="/login">Login</Link>

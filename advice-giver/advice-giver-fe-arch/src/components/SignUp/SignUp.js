@@ -63,7 +63,7 @@ class SignUp extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <button className="login-btn">Login</button>
+                <button className="login-btn">Sign Up</button>
             </div>
         )
     } //end Render
