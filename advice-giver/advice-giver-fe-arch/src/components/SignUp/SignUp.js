@@ -2,6 +2,8 @@ import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
  import './SignUp.scss';
+ import styled from "styled-components";
+
 
 class SignUp extends React.Component {
 
@@ -49,7 +51,7 @@ class SignUp extends React.Component {
     render() {
         return (
             <div className="Signup">
-                <h2>Sign Up</h2>
+                <h2>Advisee Sign Up</h2>
                 <form onSubmit={this.signUp}>
                 <div className="input-ovrd">
                 <input 
@@ -84,9 +86,24 @@ class SignUp extends React.Component {
                         placeholder="Geographic Location"
                         className="sign-up-input"
                     />
+                    <input 
+                        type="text"
+                        name="area"
+                        value={this.state.credentials.geo}
+                        onChange={this.handleChange}
+                        placeholder="Area of Interest"
+                        className="sign-up-input"
+                    />
+                     <button className="signup-btn">Sign Up</button>
+                    
                     </div>
+
+                   
                 </form>
-                <button className="signup-btn">Sign Up</button>
+                
+                
+                
+                <StyledLink to = "advisor-signup">Click here to sign up as an advisor!</StyledLink>
             </div>
         )
     } //end Render
@@ -94,3 +111,10 @@ class SignUp extends React.Component {
 } // end Login Form
 
 export default SignUp;
+
+
+const StyledLink = styled(Link)`
+    color: black;
+    width: 35%;
+    
+`
