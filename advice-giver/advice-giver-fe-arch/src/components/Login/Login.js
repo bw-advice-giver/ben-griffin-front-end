@@ -1,6 +1,6 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
-
+// import styled from "styled-components";
 import './Login.scss';
 
 class Login extends React.Component {
@@ -44,21 +44,23 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Login">
-                <h2>Log In</h2>
+                <h2>Please Log In Below</h2>
                 <form onSubmit={this.login}>
                 <div className="input-ovrd">
+                <h3>Username</h3>
                 <input
                     type="text"
                     name="username"
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
-                    placeholder="Username"
+                    // placeholder="Enter Your Username"
                     className="login-input"
                 />
+                <h3>Password</h3>
                     <input 
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        // placeholder="Password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
                         className="login-input"
