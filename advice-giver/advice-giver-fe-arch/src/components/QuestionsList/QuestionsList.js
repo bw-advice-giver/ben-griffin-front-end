@@ -24,3 +24,5 @@ function QuestionDetails ({ list }){
         <QuestionsCard {...list}/>
     )
 }
+
+export default QuestionList;

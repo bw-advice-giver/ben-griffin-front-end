@@ -6,6 +6,7 @@
 
   width: 70%;
   height: 20vh;
+ 
 
   margin-left: 20%;
 
@@ -16,7 +17,11 @@
   background-color: #204963;
 }
 
-input {
+// .input-ovrd {
+// height: 400px;
+// }
+
+.login-input {
   border-radius: 7px;
 
   margin-top: 20%;
@@ -25,13 +30,16 @@ input {
   background-color: #c4cdd3
 }
 
-input:hover {
+.login-input:hover {
   opacity: 0.6;
 }
 
 .login-btn {
   border-radius: 7px;
   margin-left: 15px;
+  margin-top: 5.5%;
+
+  height: 20px;
 }
 
 .login-btn:hover {

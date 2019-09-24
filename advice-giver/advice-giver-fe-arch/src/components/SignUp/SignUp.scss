@@ -1,9 +1,12 @@
-.Login {
+@import '../../scss/1-utils/#index';
+
+.Signup {
   border: 1.5px solid #252524;
   border-radius: 7px;
 
   width: 70%;
   height: 20vh;
+  max-height: 400px;
 
   margin-left: 20%;
 
@@ -12,9 +15,15 @@
   flex-wrap: wrap;
 
   background-color: #204963;
+
 }
 
-input {
+// .input-ovrd {
+//   height: 400px;
+//   }
+
+.sign-up-input {
+
   border-radius: 7px;
 
   margin-top: 20%;
@@ -23,15 +32,18 @@ input {
   background-color: #c4cdd3
 }
 
-input:hover {
+.sign-up-input:hover {
   opacity: 0.6;
 }
 
-.login-btn {
+.signup-btn {
   border-radius: 7px;
   margin-left: 15px;
+  margin-top: 5.5%;
+
+  height: 20px;
 }
 
-.login-btn:hover {
+.signup-btn:hover {
   opacity: 0.6;
 }

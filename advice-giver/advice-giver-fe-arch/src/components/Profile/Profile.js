@@ -41,7 +41,7 @@ const Profile = (props) => {
     const saveEdit = e => {
         e.preventDefault();
 
-        //need an endpint to save to
+        //need an endpint to local storage
     }
 
 
@@ -53,12 +53,12 @@ const Profile = (props) => {
         <div className="profile">
             <h1>Welcome To Your Profile</h1>
 
-            <h3>Name {profileEdit.name}</h3>
-            <h3>Age {profileEdit.age}</h3>
-            <h3>Gender {profileEdit.gender}</h3>
-            <h3>Bio {profileEdit.bio}</h3>
-            <h3>Interests {profileEdit.interests}</h3>
-            <h3>Social Media {profileEdit.socialMedia}</h3>
+            <h3>Name: {profileEdit.name}</h3>
+            <h3>Age: {profileEdit.age}</h3>
+            <h3>Gender: {profileEdit.gender}</h3>
+            <h3>Bio: {profileEdit.bio}</h3>
+            <h3>Interests: {profileEdit.interests}</h3>
+            <h3>Social Media: {profileEdit.socialMedia}</h3>
 
             <button onClick={editProfile}>Edit Profile</button>
 
