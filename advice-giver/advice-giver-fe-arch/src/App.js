@@ -6,6 +6,10 @@ import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
+// Hectors imports
+import QuestionsList from './components/QuestionsList/QuestionsList';
+import QuestionsCard from './components/QuestionsCard/QuestionsCard';
+import Card from './components/QuestionsCard/Card';
 
 // Private Route(s)
 import PrivateRoute from './components/PrivateRoute';
@@ -32,6 +36,10 @@ function App() {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          {/* Hectors route for the questions list and question cards */}
+          <Route exact path="/questions" component = {QuestionsList}/>
+          <Route path="/questions/:id" render={(props) => <Card {...props}/>}></Route>
+          {/* Hectors routing code ends */}
           <PrivateRoute exact path="/profile" component={Profile}/>
           {/* <PrivateRoute exact path="/questions" component={Questions}/> */}
         </Switch>
