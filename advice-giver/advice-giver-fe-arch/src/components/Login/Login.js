@@ -1,7 +1,7 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import styled from "styled-components";
-import './Login.scss';
+// import './Login.scss';
 
 class Login extends React.Component {
 
