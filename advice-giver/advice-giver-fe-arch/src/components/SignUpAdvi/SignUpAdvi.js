@@ -115,4 +115,5 @@ export default SignUpAdvi
 const StyledLink = styled(Link)`
     color: black;
     width: 35%;
+    margin: auto;
 `

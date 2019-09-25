@@ -43,10 +43,10 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="Login">
+            <StyledDiv className="Login">
                 <StyledBig>Please Log In Below</StyledBig>
                 <form onSubmit={this.login}>
-                <div className="input-ovrd">
+                {/* <div className="input-ovrd"> */}
                 <StyledSmall>Username</StyledSmall>
                 <StyledBox
                     type="text"
@@ -66,9 +66,9 @@ class Login extends React.Component {
                         className="login-input"
                     />
                     <StyledPress className="login-btn">Login</StyledPress>
-                    </div>
+                    {/* </div> */}
                 </form>
-            </div>
+            </StyledDiv>
         )
     } //end Render
 
@@ -77,17 +77,40 @@ class Login extends React.Component {
 export default Login;
 
 const StyledBig = styled.h2`
-    margin-left: -40%;
-    margin-top: -10%:
+    margin-left: -45%;
+    margin-bottom: -15%;
 `
 
 const StyledSmall = styled.h3`
-    margin-left: 140%;
-    margin-top: 10%;
+    margin-left: -8%;
+    font-size: 1.3rem;
 `
 const StyledBox = styled.input`
-    margin-left: 140%
+   margin-left: 2%;
+   border-radius: 7px;
+   background-color: whitesmoke;
+   border: 1px solid #7990B1;
+   padding: .8%;
+   font-size: 1rem;
 `
 const StyledPress = styled.button`
-    margin-left: 160%;
+    display: flex;
+    margin-top: 5%;
+    border-radius: 3px;
+    padding: 1.2%;
+    width: 7.5%;
+    font-weight: bold;
+    background-color: #3A648C;
+    color: white;
+    margin-left: 46%;
+    
+`
+const StyledDiv = styled.div`
+    background-color: #204963;
+    border: 1.5px solid #252524;
+    box-sizing: border-box;
+    width: 70%;
+    border-radius: 7px;
+    margin-left: 15%;
+    padding-bottom: 10%;
 `
