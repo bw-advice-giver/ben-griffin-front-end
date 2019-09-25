@@ -7,6 +7,10 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import SignUpAdvi from './components/SignUpAdvi';
 import Profile from './components/Profile';
+// Hectors imports
+import QuestionsList from './components/QuestionsList/QuestionsList';
+import QuestionsCard from './components/QuestionsCard/QuestionsCard';
+import Card from './components/QuestionsCard/Card';
 
 import QuestionList from './components/QuestionsList';
 import FormikAddQuestion from './components/AddQuestion';
@@ -40,9 +44,15 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          {/* Hectors route for the questions list and question cards */}
+          <Route exact path="/questions" component = {QuestionsList}/>
+          <Route path="/questions/:id" render={(props) => <Card {...props}/>}></Route>
+          {/* Hectors routing code ends */}
+          {/* <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path = "/advisor-signup" component = {SignUpAdvi} />
+          <Route exact path = "/advisor-signup" component = {SignUpAdvi} /> */}
           <PrivateRoute exact path="/profile" component={Profile}/>
           <PrivateRoute exact path="/questions" component={QuestionList}/>
           <PrivateRoute exact path="/addquestion" component={FormikAddQuestion}/> 
