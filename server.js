@@ -74,6 +74,20 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+app.post('/signup', (req, res) => {
+  const { username1, password1 } = req.body;
+  if (username1 === 'Username' && password1 === 'Password') {
+    req.signedIn = true;
+    res.status(200).json({
+      payload: token
+    });
+  } else {
+    res
+      .status(403)
+      .json({ error: 'Username or Password incorrect. Please see Readme' });
+  }
+});
+
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
