@@ -9,6 +9,8 @@ Try it out! And leave no one behind, because a more connected world should never
 
 # MONDAY
 - [ ]  Use React and front end styling platforms such as Material UI, Reactstrap, or something like Styled-Components chosen and implemented as your technology choice (to be done and listed during your additions to the Product Canvas)
+    I am going to use Materialize. 
+    
 - [ ]  Front end is pulling in some data from backend
 - [ ]  User Login/Signup Pages built and ready to handle the token being sent between backend and front end
 - [ ]  React app and Backend App talking to one another, focus on CORS issues

@@ -7,9 +7,13 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+<<<<<<< HEAD
+    "styled-components": "^4.4.0"
+=======
     "formik": "^1.5.8",
     "styled-components": "^4.4.0",
     "yup": "^0.27.0"
+>>>>>>> a0d5badf91d49e1d28ab7c8a1fe79a7a746b04d7
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
