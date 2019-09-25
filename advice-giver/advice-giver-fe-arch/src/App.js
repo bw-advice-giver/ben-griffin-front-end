@@ -44,18 +44,15 @@ function App() {
           </li>
         </ul>
         <Switch>
-<<<<<<< HEAD
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           {/* Hectors route for the questions list and question cards */}
           <Route exact path="/questions" component = {QuestionsList}/>
           <Route path="/questions/:id" render={(props) => <Card {...props}/>}></Route>
           {/* Hectors routing code ends */}
-=======
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path = "/advisor-signup" component = {SignUpAdvi} />
->>>>>>> a0d5badf91d49e1d28ab7c8a1fe79a7a746b04d7
+          <Route exact path = "/advisor-signup" component = {SignUpAdvi} /> */}
           <PrivateRoute exact path="/profile" component={Profile}/>
           <PrivateRoute exact path="/questions" component={QuestionList}/>
           <PrivateRoute exact path="/addquestion" component={FormikAddQuestion}/> 

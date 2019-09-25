@@ -64,8 +64,4 @@ function QuestionDetails ({ mock }){
     )
 }
 
-<<<<<<< HEAD
 export default QuestionsList;
-=======
-export default QuestionList;
->>>>>>> a0d5badf91d49e1d28ab7c8a1fe79a7a746b04d7
