@@ -77,8 +77,8 @@ class Login extends React.Component {
 export default Login;
 
 const StyledBig = styled.h2`
-    margin-left: -45%;
-    margin-bottom: -15%;
+    
+   
 `
 
 const StyledSmall = styled.h3`
