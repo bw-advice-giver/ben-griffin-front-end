@@ -134,7 +134,7 @@ const StyledBox = styled.input`
     padding: .8%;
     border-radius: 7px;
     font-size: 1rem;
-    margin-left: 36%;
+    margin-left: 40%;
     margin-bottom: 4%;
 `
 

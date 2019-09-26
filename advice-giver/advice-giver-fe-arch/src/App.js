@@ -50,9 +50,9 @@ function App() {
           {/* <Route exact path="/questions" component = {QuestionsList}/> */}
           <Route path="/questions/:id" render={(props) => <Card {...props}/>}></Route>
           {/* Hectors routing code ends */}
-          {/* <Route exact path="/login" component={Login} />
+         <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path = "/advisor-signup" component = {SignUpAdvi} /> */}
+          <Route exact path = "/advisor-signup" component = {SignUpAdvi} /> 
           <PrivateRoute exact path="/profile" component={Profile}/>
           {/* <PrivateRoute exact path="/questions" component={QuestionsList}/> */}
           <PrivateRoute exact path="/addquestion" component={FormikAddQuestion}/> 
