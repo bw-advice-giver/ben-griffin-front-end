@@ -1,7 +1,7 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
- import './SignUp.scss';
+//  import './SignUp.scss';
  import styled from "styled-components";
 
 
@@ -50,11 +50,11 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <div className="Signup">
+            <StyledDiv className="Signup">
                 <h2>Advisee Sign Up</h2>
                 <form onSubmit={this.signUp}>
-                <div className="input-ovrd">
-                <input 
+                {/* <div className="input-ovrd"> */}
+                <StyledBox 
                         type="text"
                         name="name"
                         value={this.state.credentials.name}
@@ -62,7 +62,7 @@ class SignUp extends React.Component {
                         placeholder="Name"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox 
                         type="text"
                         name="username"
                         value={this.state.credentials.username}
@@ -70,7 +70,7 @@ class SignUp extends React.Component {
                         placeholder="Username"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox
                         type="password"
                         name="password"
                         placeholder="Password"
@@ -78,7 +78,7 @@ class SignUp extends React.Component {
                         onChange={this.handleChange}
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox 
                         type="text"
                         name="geo"
                         value={this.state.credentials.geo}
@@ -86,7 +86,7 @@ class SignUp extends React.Component {
                         placeholder="Geographic Location"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox 
                         type="text"
                         name="area"
                         value={this.state.credentials.geo}
@@ -94,9 +94,9 @@ class SignUp extends React.Component {
                         placeholder="Area of Interest"
                         className="sign-up-input"
                     />
-                     <button className="signup-btn">Sign Up</button>
+                     <StyledPress className="signup-btn">Sign Up</StyledPress>
                     
-                    </div>
+                    {/* </div> */}
 
                    
                 </form>
@@ -104,7 +104,7 @@ class SignUp extends React.Component {
                 
                 
                 <StyledLink to = "advisor-signup">Click here to sign up as an advisor!</StyledLink>
-            </div>
+            </StyledDiv>
         )
     } //end Render
 
@@ -117,4 +117,33 @@ const StyledLink = styled(Link)`
     color: black;
     width: 35%;
     
+`
+
+const StyledDiv = styled.div`
+    border: 1.5px solid #252524;
+    border-radius: 7px;
+    width: 70%;
+    background-color: #204963;
+    margin-left: 15%;
+`
+
+const StyledBox = styled.input`
+    display: flex;
+    background-color: whitesmoke;
+    border: 1px solid #7990B1;
+    padding: .8%;
+    border-radius: 7px;
+    font-size: 1rem;
+    margin-left: 40%;
+    margin-bottom: 4%;
+`
+
+const StyledPress = styled.button`
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #3A648C;
+    color: white;
+    padding: 1.2%;
+    width: 10%;
+    margin-bottom: 3%;
 `

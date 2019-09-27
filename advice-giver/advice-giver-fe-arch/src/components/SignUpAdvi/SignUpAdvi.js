@@ -51,11 +51,11 @@ class SignUpAdvi extends React.Component {
 
     render() {
         return (
-            <div className="Signup">
+            <StyledDiv className="Signup">
                 <h2>Advisor Sign Up</h2>
                 <form onSubmit={this.signUp}>
-                <div className="input-ovrd">
-                <input 
+                
+                <StyledBox
                         type="text"
                         name="name"
                         value={this.state.credentials.name}
@@ -63,7 +63,7 @@ class SignUpAdvi extends React.Component {
                         placeholder="Name"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox
                         type="text"
                         name="username"
                         value={this.state.credentials.username}
@@ -71,7 +71,7 @@ class SignUpAdvi extends React.Component {
                         placeholder="Username"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox
                         type="password"
                         name="password"
                         placeholder="Password"
@@ -79,7 +79,7 @@ class SignUpAdvi extends React.Component {
                         onChange={this.handleChange}
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox 
                         type="text"
                         name="geo"
                         value={this.state.credentials.geo}
@@ -87,7 +87,7 @@ class SignUpAdvi extends React.Component {
                         placeholder="Geographic Location"
                         className="sign-up-input"
                     />
-                    <input 
+                    <StyledBox 
                         type="text"
                         name="area"
                         value={this.state.credentials.area}
@@ -95,12 +95,12 @@ class SignUpAdvi extends React.Component {
                         placeholder="Area of Expertise"
                         className="sign-up-input"
                     />
-                     <button className="signup-btn">Sign Up</button>
-                    </div>
+                     <StyledPress className="signup-btn">Sign Up</StyledPress>
+                    
                 </form>
                
                 <StyledLink to= "signup">Click here to sign up as an advisee!</StyledLink>
-            </div>
+            </StyledDiv>
         )
     } //end Render
 
@@ -115,4 +115,34 @@ export default SignUpAdvi
 const StyledLink = styled(Link)`
     color: black;
     width: 35%;
+    
+`
+
+const StyledDiv = styled.div`
+    border: 1.5px solid #252524;
+    border-radius: 7px;
+    width: 70%;
+    background-color: #204963;
+    margin-left: 15%;
+`
+
+const StyledBox = styled.input`
+    display: flex;
+    background-color: whitesmoke;
+    border: 1px solid #7990B1;
+    padding: .8%;
+    border-radius: 7px;
+    font-size: 1rem;
+    margin-left: 40%;
+    margin-bottom: 4%;
+`
+
+const StyledPress = styled.button`
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #3A648C;
+    color: white;
+    padding: 1.2%;
+    width: 10%;
+    margin-bottom: 3%;
 `
