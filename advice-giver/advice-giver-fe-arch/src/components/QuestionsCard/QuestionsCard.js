@@ -1,20 +1,15 @@
 import React from 'react';
-import Stylediv from './Stylediv';
-import { Link } from 'react-router-dom';
-import Box from './Styleh2';
+// Style
+import './QuestionCard.scss'
 
 const QuestionsCard = props => {
 
-    const { title, question, user } = props
+    const { title, question } = props.question;
     
     return (
-        <div>
-        <Stylediv className="one-card">
-            <div>
-            <h2>Title: {title}</h2>
-            <p>Question: {question}</p>
-            </div>
-         </Stylediv>
+        <div className="card-wrapper">
+         <h2 className="title">{title}</h2>
+          <p className="question">{question}</p>
         </div>
     )
 }

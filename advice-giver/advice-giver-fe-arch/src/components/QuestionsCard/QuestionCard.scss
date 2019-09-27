@@ -1,0 +1,41 @@
+@import '../../scss/1-utils/#index';
+
+.card-wrapper {
+    border-radius: 3px;
+    border: 2px solid black;
+    border-radius: 7px;
+
+    display: flex;
+    flex-direction: column;
+    text-decoration: inherit;
+
+    color: Black;
+    background-color:#204963;
+
+  
+    padding: 1%;
+
+    margin: auto;
+    margin-bottom: 2%;
+
+    width: 70%;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title{
+    text-align: center;
+    padding: 0;
+
+    border: 1px dashed white;
+
+    border-radius: 7px;
+
+    width: 100%;
+
+    background-color: #347299;
+}
+
+.question {
+    text-align: center;
+}

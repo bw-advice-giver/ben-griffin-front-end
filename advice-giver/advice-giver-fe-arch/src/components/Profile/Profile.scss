@@ -1,0 +1,40 @@
+@import '../../scss/1-utils/#index';
+
+.profile-wrapper, .edit-profile-form {
+    // border: 1px solid red;
+    border: 1px solid black;
+    border-radius: 7px;
+
+    max-height: 1024px;
+    
+    width: 80%;
+    margin-left: 10%;
+}
+
+.card {
+    margin-left: 55%;
+}
+
+
+.white-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+p {
+   
+    padding: 5px;
+    text-align: left;
+}
+
+.edit-btn, .edit-profile-btn {
+    background-color: rgb(47, 80, 113);
+    color: rgb(255, 255, 255);
+    box-shadow: 2px 2px lightgray;
+}
+
+.edit-btn:hover, .edit-profile-btn {
+    opacity: 0.6;
+}

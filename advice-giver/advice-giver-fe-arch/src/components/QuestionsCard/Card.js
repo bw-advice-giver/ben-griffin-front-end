@@ -1,66 +1,80 @@
-import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-import QuestionsCard from "./QuestionsCard";
+import React from 'react';
+import axios from 'axios';
+// Component
+import QuestionsCard from './QuestionsCard';
+// Stlye
+import './Card.scss'
 
+class Card extends React.Component {
 
-const Card = (props) => {
-  //mock data for now
-  const mockData = [
-    {
-        id: 0,
-        title: "what is that",
-        question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamre dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",
-        user: 'Robert'
-    },
-    {
-        id: 1,
-        title: "what if you dislike icecream",
-        question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consproident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        user: 'Martin'
-    },
-    {
-        id: 2,
-        title: "how to make eggs",
-        question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim vellum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        user: 'Megan'
-    }
-    ]
+  constructor(props) {
+    super(props);
+    this.state = {
+      question: '',
+    };
+  }
 
-  // const [movie, setMovie] = useState({});
- 
-  // useEffect(() => {
-  //   //console.dir(props);
-  //   const id = props.match.params.id;
-  //   // change ^^^ that line and grab the id from the URL
-  //   // You will NEED to add a dependency array to this effect hook
+  // Handler Functions Below \\
 
-  //      axios
-  //       .get(`http://localhost:5000/api/movies/${id}`)
-  //       .then(response => {
-  //         setMovie(response.data);
-  //       })
-  //       .catch(error => {
-  //         console.error(error);
-  //       });
+  // GET REQUEST
+  getMovie = id => {
+    axios
+    .get(`https://advice-giver-backend.herokuapp.com/messages/${id}`)
+    .then(res => this.setState({ question: res.data }))
+    .catch(err => console.log('GET REQ CAUGHT AND ERROR ',err))
+  };
 
-  // },[]);
-  
-  // Uncomment this only when you have moved on to the stretch goals
+  // DELETE REQUEST
+  deleteQuestion = () => {
+    axios.delete(`https://advice-giver-backend.herokuapp.com/messages/${this.props.match.params.id}`)
+    .then(res => {
+      console.log(res)
+      this.props.history.push('/messages');
+    })
+    .catch(err => console.log("error when deleting", err.response))
+  };
 
-  // if (Object.keys(movie).length === 0) {
-  //   return <div>Loading movie information...</div>;
-  // }
+  // SAVE Question
+  saveQuestion = () => {
+    const addSaved = this.props.addSaved;
+    addSaved(this.state.question);
+  }
 
-  const { id, title, question, user} = mockData[0];
+render() {
+
+  // Watch for NO state - conditionally
+  if(!this.state.question) {
+    return <h3>Loading Questions...</h3>
+  }
+
   return (
-    <div className="card-wrapper">
-      {console.log(mockData)}
-      <h1>Question Details</h1>
-      <h3>Poster: {user}</h3>
-      <QuestionsCard {...mockData[0]}></QuestionsCard>
-      {/* <div onClick={saveMovie} className="save-button">Save</div> */}
-    </div>
-  );
+  <div className="card-wrapper">
+    <QuestionsCard question={this.state.question} />
+            <button
+              onClick={() =>
+                this.props.history.push(
+                  `/messages/${this.props.match.params.id}`
+                )
+              }
+              className="edit-btn"
+            >
+              Edit
+            </button>
+
+            <button
+              onClick={this.deleteQuestion}
+            >
+              Delete
+            </button>
+
+            <button
+              onClick={this.saveQuestion}
+            >
+              Save
+            </button>
+            </div>
+          )
+  };
 }
 
 export default Card;

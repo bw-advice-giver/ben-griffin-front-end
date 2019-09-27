@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+
+import './Profile.scss';
 
 
 // initial profile state
@@ -40,28 +42,41 @@ const Profile = (props) => {
     // Save Profile edits
     const saveEdit = e => {
         e.preventDefault();
-
+        axiosWithAuth()
+        .post(`https://advice-giver-backend.herokuapp.com/messages`, profileEdit )
+        .then(res => console.log('here is our PUT res', res))
+        .catch()
         //need an endpint to local storage
     }
 
 
-    // Possibly Holding state
-
-    // PUT and DELETE questions Request
-
     return (
-        <div className="profile">
-            <h1>Welcome To Your Profile</h1>
+<div className="profile-wrapper">
 
-            <h3>Name: {profileEdit.name}</h3>
-            <h3>Age: {profileEdit.age}</h3>
-            <h3>Gender: {profileEdit.gender}</h3>
-            <h3>Bio: {profileEdit.bio}</h3>
-            <h3>Interests: {profileEdit.interests}</h3>
-            <h3>Social Media: {profileEdit.socialMedia}</h3>
 
-            <button onClick={editProfile}>Edit Profile</button>
-
+<div className="row">
+    <div className="col s12 m6">
+      <div className="card blue-grey darken-1">
+        <div className="card-content white-text">
+          <span className="card-title">Welcome To Your Profile</span>
+          <p>Name: {profileEdit.name}</p>
+          <p>Age: {profileEdit.age}</p>
+          <p>Gender: {profileEdit.gender}</p>
+          <p>Bio: {profileEdit.bio}</p>
+          <p>Interests: {profileEdit.interests}</p>
+          <p>Social Media: {profileEdit.socialMedia}</p> 
+          <div>
+           <button onClick={editProfile} className="edit-btn">Edit Profile</button>
+          </div>
+        </div>
+        {/* <div className="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div> */}
+        </div> 
+    </div>
+</div>
+            <div className="edit-profile-form">
             {editing && (
                 <form onSubmit={handleSubmit}>
                     <input
@@ -124,14 +139,15 @@ const Profile = (props) => {
                         placeholder="Social Media (not required)"
                     />
                     <button
-                        className="edit-profile"
+                        className="edit-profile-btn"
+                        onClick={saveEdit}
                     >
-                        Submit
+                        Save
                     </button>
                 </form>
              )
             }
-
+            </div>
         </div>
     )
 }

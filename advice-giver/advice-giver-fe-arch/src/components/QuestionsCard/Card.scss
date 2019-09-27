@@ -1,0 +1,27 @@
+.question-card {
+    border: 1px solid black;
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+
+.p, .edit-delete-btn {
+    margin-top: 1%;
+}
+
+.card-title {    
+    // border: 1px solid red;
+
+    text-align: center;
+
+    margin: 0;
+    padding: 0;
+}
+

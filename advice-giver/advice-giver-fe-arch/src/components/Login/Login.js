@@ -1,7 +1,6 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
-import styled from "styled-components";
-import './Login.scss';
+// import './Login.scss';
 
 class Login extends React.Component {
 
@@ -31,7 +30,7 @@ class Login extends React.Component {
         e.preventDefault();
         // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
         axiosWithAuth()
-          .post('/login', this.state.credentials)
+          .post('/auth/login', this.state.credentials)
           .then(res => {
               // save the returned token to localStorage ***
             localStorage.setItem('token', res.data.payload);
@@ -43,30 +42,28 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="Login">
-                <StyledBig>Please Log In Below</StyledBig>
+            <div className="login">
+                <h1>Please Log In Below</h1>
                 <form onSubmit={this.login}>
-                <div className="input-ovrd">
-                <StyledSmall>Username</StyledSmall>
-                <StyledBox
+                <h3>Username</h3>
+                <input
                     type="text"
                     name="username"
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
                     // placeholder="Enter Your Username"
-                    className="login-input"
+                    className="input-for-login"
                 />
-                <StyledSmall>Password</StyledSmall>
-                    <StyledBox 
+                <h3>Password</h3>
+                    <input 
                         type="password"
                         name="password"
                         // placeholder="Password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
-                        className="login-input"
+                        className="input-for-login"
                     />
-                    <StyledPress className="login-btn">Login</StyledPress>
-                    </div>
+                    <button className="login-page-btn">Login</button>
                 </form>
             </div>
         )
@@ -75,19 +72,3 @@ class Login extends React.Component {
 } // end Login Form
 
 export default Login;
-
-const StyledBig = styled.h2`
-    margin-left: -40%;
-    margin-top: -10%:
-`
-
-const StyledSmall = styled.h3`
-    margin-left: 140%;
-    margin-top: 10%;
-`
-const StyledBox = styled.input`
-    margin-left: 140%
-`
-const StyledPress = styled.button`
-    margin-left: 160%;
-`

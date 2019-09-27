@@ -1,66 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-import QuestionsCard from '../QuestionsCard/QuestionsCard';
 import { Link } from 'react-router-dom';
-import StyleCard from '../QuestionsCard/Stylediv';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
-const mockData = [
-{
-    id: 0,
-    title: "what is that",
-    question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamre dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",
-    user: 'Robert'
-},
-{
-    id: 1,
-    title: "what if you dislike icecream",
-    question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consproident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    user: 'Martin'
-},
-{
-    id: 2,
-    title: "how to make eggs",
-    question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim vellum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    user: 'Megan'
-}
-]
+//Component(s)
+import QuestionsCard from '../QuestionsCard/QuestionsCard';
 
-function QuestionsList () {
+class QuestionsList extends React.Component {
+    constructor(props) {
+        super(props)
+            this.state = {
+                question: []
+        };
+    };
 
-//     const [list, setList] = useState([]);
-// //place API in the useeffect below
-//     useEffect(() => {
-//         axios
-//             .get('API GOES HERE')
-//             .then(res => {
-//                 console.log(res)
-//             })
-//             .catch(error => {
-//                 console.error(error);
-//             });
-//     },[]);
+    axiosWithAuth() {
+        axios
+        .get(`https://advice-giver-backend.herokuapp.com/messages`)
+        .then(res => this.setState({ question: res.data }))
+        .catch(err => console.log(err))
+    };
 
-return (
-    <div className="questionsList">
-        <h1>Question List</h1>
-        {mockData.map(e => {
-            return (
-                <QuestionDetails key={e.id} mock={e}></QuestionDetails>
-            )
-        })}
-    </div>
-)
+    render() {
+    return (
+        <div className="questionsList">
+            <h1>Question List</h1>
+            {this.state.question.map(question => (
+                <QuestionDetails key={question.id} question={question} />
+            ))}
+        </div>
+    )}
 };
 
-
-//in place of list is mockData because no API is available
-function QuestionDetails ({ mock }){
-    {console.log(mock)}
-    const { id, title, question } = mock;
+function QuestionDetails({ question }) {
     return (
-        <Link to={`/questions/${id}`}>
-        <QuestionsCard className="questions-card"{...mock}/>
-        </Link>
+        <QuestionsCard question={question} />
     )
 }
 

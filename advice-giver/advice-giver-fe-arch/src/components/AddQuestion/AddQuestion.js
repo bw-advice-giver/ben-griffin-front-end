@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
+import { withFormik, Form, Field, resetForm } from 'formik';
 import * as Yup from 'yup';
 import styled from "styled-components";
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 
 const StyledLabel = styled.label`
@@ -85,7 +86,7 @@ const StyledError = styled.p`
 
 
 
-const AddQuestion = ({values, errors, touched, status}) => {
+const AddQuestion = ({ errors, touched, status}) => {
 
     const [questions, setQuestions] = useState([])
 
@@ -93,30 +94,21 @@ const AddQuestion = ({values, errors, touched, status}) => {
         if (status) {
             setQuestions([...questions, status])
         }
-    }, [status])
+    }, [questions])
 
     return (
-
         <StyledDiv>
-
         <StyledHead>Need advice? Submit a question!</StyledHead>
-
         <Form>
-
-           
             <StyledLabel>Title</StyledLabel>
             <StyledTitle
             type = "text"
             name = "title"
             placeholder = "Type Your Title Here"
             />
-
             {touched.title && errors.title && (
                 <StyledError>{errors.title}</StyledError>
             )}
-
-            
-
             <StyledLabel>Please Select Your Question Type</StyledLabel>
             <StyledDrop
             component = "select"
@@ -129,11 +121,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
                 <option value = "career">Career Advice</option>
                 <option value = "personal">Personal Development</option>
                 <option value = "other">Other</option>
-
-
             </StyledDrop>
-            
-
             {touched.type && errors.type && (
                 <StyledError>{errors.type}</StyledError>
             )}
@@ -150,7 +138,7 @@ const AddQuestion = ({values, errors, touched, status}) => {
                 <StyledError>{errors.body}</StyledError>
             )}
 
-            <StyledButton type = "submit">Submit</StyledButton>
+            <StyledButton type="submit">Submit</StyledButton>
 
         </Form>
 
@@ -182,16 +170,17 @@ const FormikAddQuestion = withFormik ({
 
         body: Yup.string()
         .required("Please type a question")
-    })
+    }),
 
-    //add axios call here
-
-
-
+    handleSubmit: (values, {resetForm}) => {
+        axiosWithAuth()
+        .post('/messages', values)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+        resetForm();
+    }
 
 })(AddQuestion)
-
-
 
 
 export default FormikAddQuestion 

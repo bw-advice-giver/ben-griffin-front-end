@@ -1,20 +1,22 @@
 import React from 'react';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
-import { Link } from 'react-router-dom';
- import './SignUp.scss';
- import styled from "styled-components";
+
+//  import './SignUp.scss';
+
 
 
 class SignUp extends React.Component {
 
     //set default state with empty creds obj
     state = {
-        credentials: {
-            name: '',
-            username: '',
-            password: '', 
-            geo: ''
-        }
+            username: "",
+            password: "",
+            email: "",
+            adviceGiver: false,
+            expertise: "",
+            yearsOfExperience: '',
+            age: '',
+            checked: false
     };
 
         // Handler functions below
@@ -23,10 +25,8 @@ class SignUp extends React.Component {
     handleChange = e => {
         console.log(e.target.value)
         this.setState({
-          credentials: {
-            ...this.state.credentials,
+            ...this.state,
             [e.target.name]: e.target.value
-          }
         });
       };
 
@@ -35,7 +35,7 @@ class SignUp extends React.Component {
         e.preventDefault();
         // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
         axiosWithAuth()
-          .post('/signup', this.state.credentials)
+        .post('/auth/register', this.state )
           .then(res => {
               // save the returned token to localStorage ***
             localStorage.setItem('token', res.data.payload);
@@ -46,7 +46,6 @@ class SignUp extends React.Component {
       };
 
       // Toggle User Type: Seeker or Advisor
-      
 
     render() {
         return (
@@ -57,7 +56,7 @@ class SignUp extends React.Component {
                 <input 
                         type="text"
                         name="name"
-                        value={this.state.credentials.name}
+                        value={this.state.name}
                         onChange={this.handleChange}
                         placeholder="Name"
                         className="sign-up-input"
@@ -65,7 +64,7 @@ class SignUp extends React.Component {
                     <input 
                         type="text"
                         name="username"
-                        value={this.state.credentials.username}
+                        value={this.state.username}
                         onChange={this.handleChange}
                         placeholder="Username"
                         className="sign-up-input"
@@ -74,47 +73,32 @@ class SignUp extends React.Component {
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={this.state.credentials.password}
+                        value={this.state.password}
                         onChange={this.handleChange}
                         className="sign-up-input"
                     />
                     <input 
                         type="text"
-                        name="geo"
-                        value={this.state.credentials.geo}
+                        name="email"
+                        value={this.state.email}
                         onChange={this.handleChange}
-                        placeholder="Geographic Location"
+                        placeholder="Email"
                         className="sign-up-input"
                     />
                     <input 
                         type="text"
-                        name="area"
-                        value={this.state.credentials.geo}
+                        name="interests"
+                        value={this.state.interests}
                         onChange={this.handleChange}
                         placeholder="Area of Interest"
                         className="sign-up-input"
                     />
-                     <button className="signup-btn">Sign Up</button>
-                    
-                    </div>
-
-                   
+                    </div>     
                 </form>
-                
-                
-                
-                <StyledLink to = "advisor-signup">Click here to sign up as an advisor!</StyledLink>
+                <button to = "advisor-signup">Click here to sign up as an advisor!</button>
             </div>
         )
     } //end Render
-
 } // end Login Form
 
 export default SignUp;
-
-
-const StyledLink = styled(Link)`
-    color: black;
-    width: 35%;
-    
-`
